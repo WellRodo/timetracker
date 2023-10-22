@@ -1,0 +1,18 @@
+@startuml 
+
+node PC as "Клиентский компьютер" {
+    component WebBrowser as "Веб-браузер"
+}
+
+node Server as "Сервер" {
+    component FrontEndServer as "FrontEnd-сервер"
+    component BackEndServer as "BackEnd-сервер"
+    component DataBase as "База данных"
+
+    BackEndServer -- DataBase: "TCP/IP"
+    FrontEndServer -- BackEndServer: "TCP/IP"
+}
+
+Server -- PC: "TCP/IP"
+
+@enduml
